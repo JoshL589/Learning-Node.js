@@ -3,6 +3,8 @@ const app = express();
 
 const cors = require("cors");
 
+app.use(express.static("build"));
+
 app.use(cors());
 
 let notes = [
@@ -88,6 +90,13 @@ app.get("/api/notes/:id", (request, response) => {
   } else {
     response.status(404).end();
   }
+});
+
+app.put("/api/notes/:id", (request, response) => {
+  const id = Number(request.params.id);
+  const note = notes.find((note) => note.id === id);
+  note.important = !note.important;
+  response.json(note);
 });
 
 const unknownEndpoint = (request, response) => {
