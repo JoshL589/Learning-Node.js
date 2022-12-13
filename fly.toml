@@ -1,11 +1,12 @@
-# fly.toml file generated for fullstackjosh589 on 2022-12-12T13:35:10+10:00
+# fly.toml file generated for wild-surf-9047 on 2022-12-13T10:50:45+10:00
 
-app = "fullstackjosh589"
+app = "wild-surf-9047"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [env]
+  PORT = '3001'
 
 [experimental]
   allowed_public_ports = []
@@ -13,7 +14,7 @@ processes = []
 
 [[services]]
   http_checks = []
-  internal_port = 8080
+  internal_port = 3001
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
